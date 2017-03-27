@@ -7,5 +7,5 @@
 ## Usage
 
 - Run **`npm run dev`** to start development server
-- Run **`npm run build`** to bundle our project in **dist** folder
+- Run **`npm run build`** to bundle our project in **public** folder
 - URL: http://localhost:8080
