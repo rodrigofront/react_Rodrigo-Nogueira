@@ -1,0 +1,74 @@
+.header {
+  width: 100%;
+
+  background-color: $header-background-color;
+
+  &-inside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+
+    &-logo {
+      h1 {
+        margin: 0;
+
+        font-size: 20px;
+        font-weight: normal;
+      }
+    }
+
+    &-info {
+      display: flex;
+
+      &-cart {
+        margin-right: 30px;
+
+        &-bag {
+          position: relative;
+        }
+
+        &-wishlist {
+          position: relative;
+        }
+
+        &-price {
+          display: inline-block;
+
+          margin-right: 5px;
+
+          vertical-align: sub;
+
+          font-size: 12px;
+        }
+      }
+
+      &-wishlist {
+        position: relative;
+
+        margin-right: 15px;
+      }
+
+      .count {
+        @include circle(15px);
+
+        position: absolute;
+        top: -6px;
+        right: -15px;
+
+        padding-top: 2px;
+
+        background-color: $color-blue;
+
+        color: $color-white;
+
+        font-family: "Lato";
+        font-size: 8px;
+        font-weight: bold;
+
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+//---------------------------------------------------------------------------
+// Utils
+//---------------------------------------------------------------------------
+@mixin lineclamp ($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin text-middle ($height, $line-height: $height) {
+    height: $height;
+    line-height: $line-height;
+}
+
+@mixin circle ($size) {
+    width: $size;
+    height: $size;
+    border-radius: $size;
+}
+
+//---------------------------------------------------------------------------
+// Responsive Utils
+//---------------------------------------------------------------------------
+// desktop view
+@mixin desktop-view {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+// mobile view
+@mixin mobile-view {
+    @media screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+// view
+@mixin view ($t1, $t2: "") {
+    $types: ($t1, $t2);
+    $media: "";
+
+    @each $type in $types {
+        @if ($type == "desktop") {
+            $media: "(min-width: 768px)";
+        }
+        @if ($type == "mobile") {
+            $media: "(max-width: 767px)";
+        }
+
+        @media screen and #{$media} {
+            @content;
+        }
+    }
+}
+
+
+//---------------------------------------------------------------------------
+// Placeholders Fallback
+//---------------------------------------------------------------------------
+// grid
+
+@mixin grid-container-padding {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@mixin grid-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@mixin grid-zero-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// utils
+@mixin text-overflow {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        display: block;
+        overflow: hidden;
+
+        height: 0;
+
+        content: "\0020";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+//---------------------------------------------------------------------------
+// Selectors
+//---------------------------------------------------------------------------
+// grid
+@mixin grid-selector ($selector: "") {
+    #{$selector} [class^='grid-'],
+    #{$selector} [class*='grid-'],
+    #{$selector} [class^='tablet-grid-'],
+    #{$selector} [class*='tablet-grid-'],
+    #{$selector} [class^='mobile-grid-'],
+    #{$selector} [class*='mobile-grid-'] {
+        @content;
+    }
+}

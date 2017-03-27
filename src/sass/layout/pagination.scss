@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 45px;
+
+  margin-top: 20px;
+
+  a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+
+    padding-top: 15px;
+
+    color: $color-base;
+
+    font-weight: bold;
+
+    text-decoration: none;
+    text-align: center;
+
+    &.__isActive,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

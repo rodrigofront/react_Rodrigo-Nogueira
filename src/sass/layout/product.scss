@@ -1,0 +1,132 @@
+.product {
+  position: relative;
+
+  display: block;
+
+  margin-bottom: 20px;
+
+  padding: 20px 20px 25px;
+
+  background-color: $color-white;
+
+  text-align: center;
+
+  &-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    button {
+      @include circle(35px);
+
+      background-color: transparent;
+
+      border: 1px solid $color-button;
+
+      color: $color-button;
+
+      &:hover,
+      &.__isActive {
+        border-color: $color-base;
+
+        color: $color-button-hover;
+      }
+      
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    .fa {
+      font-size: 19px;
+    }
+  }
+
+  &-img {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &-title {
+    @include text-overflow;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &-subTitle {
+    @include text-overflow;
+
+    margin-top: 10px;
+
+    color: $color-base-lighter;
+    font-size: 12px;
+  }
+
+  &-price {
+    margin-top: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    &-discount {
+      display: none;
+
+      margin-left: 10px;
+
+      color: $color-red;
+    }
+
+    &.with_discount {
+      .product-price-normal {
+        text-decoration: line-through;
+      }
+
+      .product-price-discount {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-button {
+    margin-top: 20px;
+
+    button {
+      width: 100%;
+
+      padding-top: 13px;
+      padding-bottom: 13px;
+
+      background-color: $color-white;
+
+      border: 1px solid $color-base-light;
+      border-radius: 22px;
+
+      text-align: center;
+
+      font-size: 13px;
+      font-weight: bold;
+
+      line-height: 16px;
+
+      &:not(.__isActive):hover {
+        background-color: $color-base;
+
+        border: 1px solid $color-base;
+
+        color: $color-white;
+      }
+
+      &.__isActive {
+        background-color: $color-base-light;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}
